@@ -1,0 +1,49 @@
+﻿@model trabajopalacasa.Models.ViewModels.NuevaSolicitud
+@{
+    ViewBag.Title = "Crear Solicitud";
+}
+<br />
+<h2>@ViewBag.Title</h2>
+
+<div class="row">
+    <div class="col-md-12">
+
+        @using (Html.BeginForm("NuevaSoli", "Home", FormMethod.Post, new { role = "form", @class = "" }))
+        {
+            <div>
+                <p class="small text-muted">Ingrese los datos solicitados para crear una solicitud!</p>
+            </div>
+            @Html.AntiForgeryToken()
+
+            @Html.ValidationMessage("error", new { @class = "text-danger" })
+
+            @Html.LabelFor(d => d.Titulo)
+            @Html.TextBoxFor(d => d.Titulo, new { @class = "form-control" })
+            @Html.ValidationMessage("Titulo", new { @class = "text-danger" })<br />
+
+            @Html.LabelFor(d => d.Tipo_solicitud)
+            @Html.TextBoxFor(d => d.Tipo_solicitud, new { @class = "form-control" })
+            @Html.ValidationMessage("Tipo_solicitud", new { @class = "text-danger" })<br />
+
+
+            @Html.LabelFor(d => d.Mensaje)
+            @Html.TextAreaFor(d => d.Mensaje, new { @class = "form-control" })
+            @Html.ValidationMessage("Mensaje", new { @class = "text-danger" })<br />
+
+
+            <div style="text-align:right;">
+
+                <input type="submit" class="btn btn-success" value="Enviar Solicitud" />
+
+            </div>
+
+        }
+
+
+    </div>
+
+
+
+
+</div>
+

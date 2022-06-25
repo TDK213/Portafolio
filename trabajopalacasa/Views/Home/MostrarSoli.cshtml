@@ -1,0 +1,119 @@
+﻿@model trabajopalacasa.Models.ViewModels.EditarSolicitud
+@{
+    ViewBag.Title = "Ver Solicitud";
+}
+<div class="container">
+    <br />
+    <h2>@ViewBag.Title</h2>
+    <div>
+        <p class="small text-muted">Actualmente usted esta viendo los datos solicitados :D</p>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+
+            @using (Html.BeginForm("MostrarSoli", "Home", FormMethod.Post, new { role = "form", @class = "" }))
+            {
+                @Html.HiddenFor(d => d.Id)
+                @Html.AntiForgeryToken()
+
+                @Html.ValidationMessage("error", new { @class = "text-danger" })
+
+                @*<table class="table table-bordered">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Titulo</th>
+                            <th>Tipo de Solicitud</th>
+                            <th>Mensaje</th>
+                        </tr>
+                    </thead>
+
+                    <tr>
+                        <td>@Html.DisplayText("Titulo")</td>
+
+                        <td>@Html.DisplayText("Tipo_solicitud")</td>
+
+                        <td>@Html.DisplayText("Mensaje")</td>
+
+                    </tr>
+
+                </table>*@
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h2 class="panel-title">
+                            @Html.DisplayText("Titulo")
+                        </h2>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-1">Tipo de solicitud: </div>
+                            <div class="col-md-5">
+                                <a>@Html.DisplayText("Tipo_solicitud")</a>
+                            </div>
+
+                            <div class="col-md-1">Fecha de envio:</div>
+                            <div class="col-md-5">@Html.DisplayText("Fecha")</div>
+
+                            <div class="col-md-1">Numero de Solicitud:</div>
+                            <div class="col-md-5"><span style="color: green;">@Html.DisplayText("Id")</span></div>
+
+                        </div>
+                    </div>
+                    <!--prueba-->
+                    <br>
+                    <div class="border border-secondary" style="width: 65%">
+                        <div class="container">
+                            <br>
+                            <h4>
+                                Comentario de la Solicitud
+                            </h4>
+                            <p>
+                                @Html.DisplayText("Mensaje")
+                            </p>
+                        </div>
+
+
+                    </div>
+                    <br>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-3">Archivo adjunto/s</div>
+                            <div class="col-md-4">
+                                <a href="#">Archivo 1 </a> - <a href="#">Archivo 2</a>
+                            </div>
+                        </div>
+                        <br>
+                        @*<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                            <button class="btn btn-success me-md-2" type="button">Aprobar</button>
+                            <button class="btn btn-danger" type="button">Rechazar</button>
+                        </div>*@
+                        <br>
+                    </div>
+
+                </div>
+
+
+                @*@Html.LabelFor(d => d.Titulo)
+            @Html.TextBoxFor(d => d.Titulo, new { @class = "form-control" })
+            @Html.ValidationMessage("Titulo", new { @class = "text-danger" })<br />
+
+            @Html.LabelFor(d => d.Tipo_solicitud)
+            @Html.TextBoxFor(d => d.Tipo_solicitud, new { @class = "form-control" })
+            @Html.ValidationMessage("Tipo_solicitud", new { @class = "text-danger" })<br />
+
+
+            @Html.LabelFor(d => d.Mensaje)
+            @Html.TextAreaFor(d => d.Mensaje, new { @class = "form-control" })
+            @Html.ValidationMessage("Mensaje", new { @class = "text-danger" })<br />*@
+
+
+                @*<div style="text-align:right;">
+
+                <input type="submit" class="btn btn-success" value="Actualizar Solicitud" />
+
+            </div>*@
+
+            }
+        </div>
+    </div>
+</div>
